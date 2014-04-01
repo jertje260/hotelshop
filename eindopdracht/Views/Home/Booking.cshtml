@@ -1,0 +1,14 @@
+﻿@model IEnumerable<eindopdracht.Models.Entry> 
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+@foreach (var item in Model)
+{
+    <div>
+        <h4>@item.Room</h4>
+        <div>@item.StartDate, @item.EndDate, @item.Guests.Count</div>
+
+    </div>
+}

@@ -1,0 +1,15 @@
+﻿@model eindopdracht.Models.SpecialPrice
+
+<div>
+    <h4>Special Price @Model.StartDate - @Model.EndDate</h4>
+    <div>
+        Special price: €@Model.Price,-
+            <span class="right">
+                @Html.ActionLink("Edit", "Edit/" + Model.Id ,"SpecialPrice")
+                @Html.ActionLink("Delete", "Delete/" + Model.Id, "SpecialPrice")
+            </span>
+
+    </div>
+
+
+</div>

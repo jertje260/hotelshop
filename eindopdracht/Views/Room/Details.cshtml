@@ -1,0 +1,38 @@
+﻿@model eindopdracht.Models.Room
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Room</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.AmountOfPeople)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmountOfPeople)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.MinimumPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MinimumPrice)
+    </div>
+    @if (Model.specialPrices != null)
+    {
+        foreach (var SpecialPrice in Model.specialPrices)
+        {
+            @Html.Partial("_SpecialPrice", SpecialPrice);
+        }
+    }
+</fieldset>
+<p>
+    
+    @Html.ActionLink("Add special price", "CreateSpecialPrice", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

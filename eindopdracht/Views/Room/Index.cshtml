@@ -1,0 +1,30 @@
+﻿@model IEnumerable<eindopdracht.Models.Room> 
+@{
+    ViewBag.Title = "Rooms";
+    int number = 1;
+}
+
+<h2>Rooms</h2>
+@Html.ActionLink("Create new room", "Create")
+@foreach (var room in Model)
+{   
+    
+    <div><h4>Room number: @(number++) </h4>
+        <div>
+            Room minimum price: €@room.MinimumPrice,-
+            Room amount of beds: @room.AmountOfPeople
+            <span class="right">
+                @Html.ActionLink("Details", "Details", new { id = room.Id})
+                @Html.ActionLink("Edit", "Edit", new { id = room.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = room.Id})
+            </span>
+
+        </div>
+
+
+    </div>
+
+    
+}
+
+

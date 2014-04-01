@@ -1,0 +1,44 @@
+﻿@model IEnumerable<eindopdracht.Models.Entry>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@foreach (var item in Model)
+{
+    <div>
+        <h3>@Html.DisplayNameFor(model => model.StartDate)</h3>
+        @Html.DisplayFor(modelItem => item.StartDate)
+    </div>
+    <div>
+        <h3>@Html.DisplayNameFor(model => model.EndDate)</h3>
+        @Html.DisplayFor(modelItem => item.EndDate)
+    </div>
+    
+    <div>
+        <h3>Number of Guests</h3>
+        @if (item.Guests != null)
+        {
+            Html.DisplayFor(modelItem => item.Guests.Count);
+        }
+        else
+        {
+            <h4>Zero guests, change or delete this entry.</h4>   
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </p>
+}
+
+
+

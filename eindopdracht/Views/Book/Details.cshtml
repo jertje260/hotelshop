@@ -1,0 +1,35 @@
+﻿@model eindopdracht.Models.Entry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Entry</legend>
+    <div>
+        <h3>@Html.DisplayNameFor(model => Model.StartDate)</h3>
+        @Html.DisplayFor(model => Model.StartDate)
+    </div>
+    <div>
+        <h3>@Html.DisplayNameFor(model => Model.EndDate)</h3>
+        @Html.DisplayFor(model => Model.EndDate)
+    </div>
+
+    @foreach(eindopdracht.Models.Person p in Model.Guests){
+        @Html.Partial("_Person", p)
+    }
+
+
+</fieldset>
+<p>
+    @if(Model.Guests.Count<=Model.AmountOfPeople){
+        @Html.ActionLink("Add person", "CreatePerson", new { id = Model.Id} )
+    }
+    else{
+        @Html.ActionLink("Continue booking", "ContinueBook", new { id = Model.Id })
+    }
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

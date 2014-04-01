@@ -1,0 +1,27 @@
+﻿@model IEnumerable<eindopdracht.Models.Room> 
+@{
+    ViewBag.Title = "Rooms";
+}
+
+<h2>Rooms</h2>
+
+@foreach (var room in Model)
+{
+    <div><h4>Room number: @room.Id</h4>
+        <div>
+            Room minimum price: €@room.MinimumPrice,-
+            Room special price: €@room.SpecialPrice,-
+            Room amount of beds: @room.AmountOfPeople
+            <span class="right">
+                @Html.ActionLink("Edit", "Edit", new { id = room.Id })
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+}
+
+
